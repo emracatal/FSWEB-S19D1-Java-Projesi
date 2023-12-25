@@ -38,7 +38,7 @@ public class Movie {
     private List<Actor> actorList;
 
     public void add(Actor actor) {
-        if (actor == null) {
+        if (actorList == null) {
             actorList = new ArrayList<>();
         }
         actorList.add(actor);
