@@ -14,7 +14,7 @@ public interface MovieService {
     MovieResponse findById(Long id);
 
     //[POST]/movies/ => Bir adet movie objesi ve bir adet actor objesi alır ve ikisini de veritabanına ilişkileri ile birlikte kaydeder.
-    MovieResponse save(Movie movie, Actor actor);
+    MovieResponse save(Movie movie);
 
     //[PUT]/movies/{id} => İlgili id deki movie objesinin değerlerini yeni gelen data ile değiştirir.
 

@@ -38,7 +38,7 @@ public class ActorServiceImpl implements ActorService {
     }
 
     @Override
-    public ActorResponse save(Actor actor, Movie movie) {
+    public ActorResponse save(Actor actor) {
         return null;
     }
 

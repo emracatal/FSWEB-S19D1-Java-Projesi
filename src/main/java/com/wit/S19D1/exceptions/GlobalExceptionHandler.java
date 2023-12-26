@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<CinemaErrorResponse> handleException(CinemaException cinemaException) {
         CinemaErrorResponse cinemaErrorResponse = new CinemaErrorResponse(
-                cinemaException.getHttpStatus().value(), cinemaException.getMessage(), LocalDateTime.now()
+                cinemaException.getHttpStatus().value(), "CinemaException occured: "+ cinemaException.getMessage(), LocalDateTime.now()
         );
         return new ResponseEntity<>(cinemaErrorResponse, cinemaException.getHttpStatus());
     }
@@ -24,9 +24,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<CinemaErrorResponse> handleException(Exception exception) {
         CinemaErrorResponse cinemaErrorResponse = new CinemaErrorResponse(
-                HttpStatus.BAD_REQUEST.value(), exception.getMessage(), LocalDateTime.now()
+                HttpStatus.INTERNAL_SERVER_ERROR.value(), exception.getMessage(), LocalDateTime.now()
         );
         log.error("EXCEPTION OCCURED: " + exception.getMessage());
-        return new ResponseEntity<>(cinemaErrorResponse, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(cinemaErrorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
